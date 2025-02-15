@@ -21,8 +21,6 @@ aircraft-processing/
 │   ├── types.ts          # TypeScript type definitions
 │   └── db.ts             # Database operations (if needed)
 ├── data/                  # FAA registry data files
-├── templates/            
-│   └── Letter-Template.docx # Letter template
 ├── Outgoing-Letters/     # Generated letter output folder
 ├── package.json
 └── tsconfig.json
@@ -59,10 +57,10 @@ Generated letters will be saved in the `Outgoing-Letters` folder as `N{REGISTRAT
 ## Data Files
 
 Place updated FAA registry files in the `data` directory:
-- MASTER.csv - Master aircraft registry
-- DEREG.csv - Deregistered aircraft
-- DOCINDEX.csv - Registration document index
 - ACFTREF.csv - Aircraft reference data
+- PendingCancellationXX-XX-20XX.csv - Current pending registration cancellations
+- DEALER.csv - Aircraft dealer information
+- ENGINE.csv - Aircraft engine reference data
 
 ## Letter Template
 
