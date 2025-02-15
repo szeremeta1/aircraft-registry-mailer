@@ -5,3 +5,8 @@
 # Dependencies
 /node_modules
 node_modules/
+
+# Generated documents
+Outgoing-Letters/
+*.docx
+*.pdf

@@ -18,19 +18,13 @@ export async function generateLetters(aircraftData: Aircraft[], outputFolder: st
 }
 
 export async function generateMailingList(aircraftData: Aircraft[], outputFolder: string) {
-    // Update header to include country
-    const csvRows = ['first,last,address,address2,city,state,zip,country,file'];
+    // Update header to use single name column
+    const csvRows = ['name,address,address2,city,state,zip,country,file'];
     
     for (const aircraft of aircraftData) {
-        // Split owner name into first/last - assume last word is last name
-        const nameParts = aircraft.owner.split(' ');
-        const lastName = nameParts.pop() || '';
-        const firstName = nameParts.join(' ');
-        
         // Build CSV row with sanitized data and add USA as country
         const row = [
-            firstName.replace(/,/g, ''),
-            lastName.replace(/,/g, ''),
+            aircraft.owner.replace(/,/g, ''),  // Keep full name as one field
             (aircraft.street || '').replace(/,/g, ''),
             (aircraft.street2 || '').replace(/,/g, ''),
             (aircraft.city || '').replace(/,/g, ''),
