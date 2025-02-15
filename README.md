@@ -39,7 +39,7 @@ aircraft-processing/
 
 2. cd into folder Install dependencies:
 ```bash
-cd aircraft-processing
+cd aircraft-registry-mailer
 npm install
 ```
 
