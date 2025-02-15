@@ -14,7 +14,7 @@ export async function generateLetters(aircraftData, outputFolder) {
     await generateMailingList(aircraftData, outputFolder);
 }
 export async function generateMailingList(aircraftData, outputFolder) {
-    const csvRows = ['first,last,address,address2,city,state,zip'];
+    const csvRows = ['first,last,address,address2,city,state,zip,file'];
     for (const aircraft of aircraftData) {
         // Split owner name into first/last - assume last word is last name
         const nameParts = aircraft.owner.split(' ');
@@ -28,7 +28,8 @@ export async function generateMailingList(aircraftData, outputFolder) {
             (aircraft.street2 || '').replace(/,/g, ''),
             (aircraft.city || '').replace(/,/g, ''),
             aircraft.state || '',
-            aircraft.zipCode || ''
+            aircraft.zipCode || '',
+            `N${aircraft.number}.docx` // Add the filename column
         ].join(',');
         csvRows.push(row);
     }
@@ -97,7 +98,7 @@ function createLetter(aircraft) {
                     new Paragraph({
                         children: [
                             new TextRun({
-                                text: `I came across FAA records showing that your plane, N${aircraft.number}, has an expired certificate and is pending registration cancellation. I'm a passionate student pilot based out of Central Jersey, currently working on my Private Pilot's License & Instrument Rating. My deepest passion of all, however, is technology, and discovering well loved airplanes with various avionics systems fuels them both. Your ${aircraft.yearManufactured || ''} ${aircraft.mfrModelCode || ''} caught my eye, and I wanted to reach out to see if you still have it. If so, I'd love to learn more about her history and condition. If you've considered selling or donating, I'd be very interested in discussing that. I look forward to hearing from you!`,
+                                text: `I came across FAA records showing that your plane, N${aircraft.number}, has an expired certificate and is pending registration cancellation. I'm a passionate student pilot based out of Central Jersey, currently working on my Private Pilot's License & Instrument Rating. My deepest passion of all, however, is technology, and discovering well loved airplanes with various avionics systems fuels them both. Your ${aircraft.yearManufactured || ''} ${aircraft.mfrModelCode || ''} caught my eye, and I wanted to reach out to see if you still have it. If so and if she's airworthy, I'd love to learn more about her history and condition. If you've considered selling or donating, I'd be very interested in discussing that. I look forward to hearing from you!`,
                                 font: "Garamond"
                             })
                         ],
