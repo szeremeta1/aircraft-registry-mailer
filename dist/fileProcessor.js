@@ -3,7 +3,6 @@ import path from 'path';
 import { parse } from 'csv-parse/sync';
 const MANUFACTURER_MAPPINGS = {
     'BEECH': 'Beechcraft',
-    'BOEING': 'Boeing',
     'CESSNA': 'Cessna',
     'CIRRUS': 'Cirrus',
     'MOONEY': 'Mooney',
@@ -13,7 +12,6 @@ const MANUFACTURER_MAPPINGS = {
     'GULFSTREAM AEROSPACE': 'Gulfstream',
     'HAWKER BEECHCRAFT CORP': 'Hawker',
     'BOMBARDIER INC': 'Bombardier',
-    'PIPER': 'Piper'
 };
 const standardizeManufacturerName = (manufacturer) => {
     const upperManufacturer = manufacturer.toUpperCase();

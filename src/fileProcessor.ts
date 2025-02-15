@@ -5,7 +5,6 @@ import { Aircraft } from './types';
 
 const MANUFACTURER_MAPPINGS: { [key: string]: string } = {
     'BEECH': 'Beechcraft',
-    'BOEING': 'Boeing',
     'CESSNA': 'Cessna',
     'CIRRUS': 'Cirrus',
     'MOONEY': 'Mooney',
@@ -15,7 +14,6 @@ const MANUFACTURER_MAPPINGS: { [key: string]: string } = {
     'GULFSTREAM AEROSPACE': 'Gulfstream',
     'HAWKER BEECHCRAFT CORP': 'Hawker',
     'BOMBARDIER INC': 'Bombardier',
-    'PIPER': 'Piper'
 };
 
 const standardizeManufacturerName = (manufacturer: string): string => {
