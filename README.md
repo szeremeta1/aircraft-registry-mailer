@@ -21,8 +21,6 @@ aircraft-processing/
 │   ├── types.ts          # TypeScript type definitions
 │   └── db.ts             # Database operations (if needed)
 ├── data/                  # FAA registry data files
-├── templates/            
-│   └── Letter-Template.docx # Letter template
 ├── Outgoing-Letters/     # Generated letter output folder
 ├── package.json
 └── tsconfig.json
